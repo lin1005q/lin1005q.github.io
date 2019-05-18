@@ -8,10 +8,19 @@ header:
     url: /
   - titles:
       en      : &EN       EAP
+      en-GB   : *EN
+      en-US   : *EN
+      en-CA   : *EN
+      en-AU   : *EN
       zh-Hans : &ZH_HANS  EAP
       zh      : *ZH_HANS
       zh-CN   : *ZH_HANS
       zh-SG   : *ZH_HANS
+      zh-Hant : &ZH_HANT  EAP
+      zh-TW   : *ZH_HANT
+      zh-HK   : *ZH_HANT
+      ko      : &KO       EAP
+      ko-KR   : *KO
     url: /2018/01/24/eap使用(1)-工具列表
   - titles:
       en      : &EN       Archive
@@ -46,6 +55,22 @@ header:
       ko      : &KO       소개
       ko-KR   : *KO
     url: /about.html
+  - titles:
+      en      : &EN       GitHub
+      en-GB   : *EN
+      en-US   : *EN
+      en-CA   : *EN
+      en-AU   : *EN
+      zh-Hans : &ZH_HANS  GitHub
+      zh      : *ZH_HANS
+      zh-CN   : *ZH_HANS
+      zh-SG   : *ZH_HANS
+      zh-Hant : &ZH_HANT  GitHub
+      zh-TW   : *ZH_HANT
+      zh-HK   : *ZH_HANT
+      ko      : &KO       GitHub
+      ko-KR   : *KO
+    url: https://github.com/weihai4099/weihai4099.github.io
 
 
 eap-zh:
