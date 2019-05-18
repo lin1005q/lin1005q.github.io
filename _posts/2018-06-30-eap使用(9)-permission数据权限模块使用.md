@@ -1,6 +1,8 @@
 ---
 key: eap使用9-permission数据权限模块使用
 tags: [eap]
+sidebar:
+  nav: eap-zh
 ---
 
 eap 最近支持了数据权限的配置使用

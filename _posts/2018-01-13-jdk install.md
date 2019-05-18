@@ -1,8 +1,10 @@
 ﻿---
-title: jdk环境变量
-key: jdk环境变量
+title: jdk安装
+key: jdk安装
 tags: [java基础,eap,shell]
-date: 2018-01-13 20:26:11
+date: 2018-01-13
+sidebar:
+  nav: eap-zh
 ---
 
 ## JDK下载
