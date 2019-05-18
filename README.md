@@ -7,6 +7,6 @@ Powered by [Jekyll](https://jekyllrb.com/) & [TeXt Theme](https://github.com/kit
 
 ## 待办
 
-[ ] gitlak维护
-[ ] post key 维护
-[ ] logo修改
+* [ ] gitlak维护
+* [ ] post key 维护
+* [ ] logo修改
