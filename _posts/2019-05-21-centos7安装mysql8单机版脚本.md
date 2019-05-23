@@ -1,7 +1,7 @@
 ---
 title: centos7安装mysql8单机版脚本
 key: centos7安装mysql8单机版脚本
-tags: [shell，sql]
+tags: [shell,sql]
 ---
 
 # mysql安装

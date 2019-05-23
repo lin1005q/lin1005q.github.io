@@ -130,7 +130,7 @@ comments:
     clientID: 115e620a79fa03b2b66e
     clientSecret: d5477138b43147a3dc9745a8da357f713a9d93f8
     repository: gitalk-demo
-    owner: hfvast
+    owner: weihai4099
     admin: #Github repo owner and collaborators, only these guys can initialize github issues, IT IS A LIST.
       - weihai4099
 
