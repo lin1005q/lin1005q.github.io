@@ -113,6 +113,13 @@ CREATE USER 'test'@'%' IDENTIFIED BY 'root';
 GRANT ALL PRIVILEGES ON *.* TO 'test'@'%' WITH GRANT OPTION;
 ```
 
+## 添加仓库用户
+
+```sql
+CREATE USER 'app_a'@'%' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON database_name.* TO 'app_a'@'%';
+```
+
 ## 关闭防火墙
 
 ```bash
