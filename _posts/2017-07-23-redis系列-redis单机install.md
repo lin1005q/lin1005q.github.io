@@ -1,27 +1,30 @@
 ---
-date: 2017-07-23 19:26
+date: 2019-06-22 12:11
 title: redis系列--redis单机install
 tags: [redis]
 ---
 
 单机很简单 几个命令
 Linux 下安装
-下载地址：<http://redis.io/download，下载最新文档版本。>
-本教程使用的最新文档版本为 2.8.17，下载并安装：
+下载地址：<http://redis.io/download>
+本教程使用的最新文档版本为 5.0.5，下载并安装：
 
 ```bash
-$ wget http://download.redis.io/releases/redis-2.8.17.tar.gz
-$ tar xzf redis-2.8.17.tar.gz
-$ cd redis-2.8.17
-$ make
+wget http://download.redis.io/releases/redis-5.0.5.tar.gz
+//yum安装gcc 需要 gcc依赖
+yum install gcc-c++ tcl
+tar xzf redis-5.0.5.tar.gz
+cd redis-5.0.5
+make
+make MALLOC=libc(如果报错的话)
 ```
 
-make完后 redis-2.8.17目录下会出现编译后的redis服务程序redis-server,还有用于测试的客户端程序redis-cli,两个程序位于安装目录 src 目录下：
+make完后 redis-5.0.5目录下会出现编译后的redis服务程序redis-server,还有用于测试的客户端程序redis-cli,两个程序位于安装目录 src 目录下：
 下面启动redis服务.
 
 ```bash
-$ cd src
-$ ./redis-server
+cd src
+./redis-server
 ```
 
 注意这种方式启动redis 使用的是默认配置。也可以通过启动参数告诉redis使用指定配置文件使用下面命令启动。
