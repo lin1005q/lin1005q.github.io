@@ -132,3 +132,12 @@ systemctl disable firewalld
 `ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'xxxxxx';`
 
 或者直接在my.cnf文件中指定`default_authentication_plugin=mysql_native_password`。
+
+
+## 添加`XA_RECOVER_ADMIN`权限
+
+`GRANT XA_RECOVER_ADMIN ON *.* TO '你的用户名'@'%';`
+
+注意：由于`XA_RECOVER_ADMIN`是系统权限，只能赋予`*.*`,不能赋予数据库下。
+
+bug：springboot多数据源分布式事务报 Fatal error occurred in the transaction branch-check your data for consistency
