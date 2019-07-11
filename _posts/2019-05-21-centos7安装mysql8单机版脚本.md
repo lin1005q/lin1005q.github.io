@@ -120,6 +120,12 @@ CREATE USER 'app_a'@'%' IDENTIFIED BY 'password';
 GRANT ALL PRIVILEGES ON database_name.* TO 'app_a'@'%';
 ```
 
+## 删除用户
+
+```sql
+drop user username;
+```
+
 ## 关闭防火墙
 
 ```bash
