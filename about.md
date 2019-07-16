@@ -12,6 +12,9 @@ key: page-about
 System.out.println("hello, world!");
 ```
 ```js
+console.log('hello, world!');
+```
+```js
 (() => console.log('hello, world!'))();
 ```
 ```bash
@@ -22,4 +25,10 @@ println "hello, world!"
 ```
 ```bash
 docker run hello-world
+```
+```python
+print("hello world");
+```
+```bash
+ngx.say('hello world');
 ```
