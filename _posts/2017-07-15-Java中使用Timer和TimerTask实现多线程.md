@@ -1,7 +1,7 @@
 ---
 date: 2017-07-15 19:04
 title: Java中使用Timer和TimerTask实现多线程
-tags: [java基础,多线程，转载]
+tags: [java基础,多线程,转载]
 ---
 
 >[2013年05月30日 09:04供稿中心： 课工场](http://www.bdqn.cn/news/201305/9303.shtml)
