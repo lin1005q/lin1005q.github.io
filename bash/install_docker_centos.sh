@@ -10,8 +10,10 @@ sudo yum remove docker docker-client docker-client-latest \
 sudo yum install -y yum-utils device-mapper-persistent-data lvm2 -y
 
 # Use the following command to set up the stable repository.
-sudo yum-config-manager --add-repo \
-    https://download.docker.com/linux/centos/docker-ce.repo
+# docker 官方库
+# sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+# 阿里镜像库
+sudo yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 
 # Install the latest version of Docker Engine - Community and containerd, or go to the next step to install a specific version:
 sudo yum install docker-ce docker-ce-cli containerd.io -y
