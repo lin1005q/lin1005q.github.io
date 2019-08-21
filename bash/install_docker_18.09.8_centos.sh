@@ -1,23 +1,3 @@
----
-title: centos7安装docker-ce
-key: docker
-tags: [docker,k8s]
----
-
-官方文档地址:[https://docs.docker.com/install/linux/docker-ce/centos/]()
-
-## 快速安装
-
-```
-# 最新版
-curl -sSl https://qiao.dev/bash/install_docker_latest_centos.sh | sh
-# k8s最新支持版本 18.09.8
-curl -sSl https://qiao.dev/bash/install_docker_18.09.8_centos.sh | sh
-```
-
-## 脚本解释说明
-
-```bash
 #!/bin/bash
 
 # Uninstall old versions
@@ -38,9 +18,8 @@ sudo yum install -y yum-utils device-mapper-persistent-data lvm2 -y
 # 阿里镜像库
 sudo yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 
-# Install the latest version of Docker Engine - Community and containerd, or go to the next step 
-# to install a specific version:
-sudo yum install docker-ce docker-ce-cli containerd.io -y
+# Install the latest version of Docker Engine - Community and containerd, or go to the next step to install a specific version:
+# sudo yum install docker-ce docker-ce-cli containerd.io -y
 
 # yum list docker-ce --showduplicates | sort -r
 
@@ -50,12 +29,12 @@ sudo yum install docker-ce docker-ce-cli containerd.io -y
 # docker-ce.x86_64  18.06.0.ce-3.el7                    docker-ce-stable
 
 # sudo yum install docker-ce-<VERSION_STRING> docker-ce-cli-<VERSION_STRING> containerd.io
-# sudo yum install docker-ce-18.09.8-3.el7 docker-ce-cli-18.09.8-3.el7 containerd.io
+sudo yum install docker-ce-18.09.8-3.el7 docker-ce-cli-18.09.8-3.el7 containerd.io -y
 
 # Start Docker.
 sudo systemctl start docker
 
-echo "install docker success"
+echo "install docker 18.09.8 success"
 
 echo "you could docker run hello-world to test"
 
@@ -67,4 +46,3 @@ echo "you could docker run hello-world to test"
 # Uninstall docker
 # sudo yum remove docker-ce
 # sudo rm -rf /var/lib/docker
-```

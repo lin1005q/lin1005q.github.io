@@ -3,7 +3,10 @@
 # Uninstall old versions
 sudo yum remove docker docker-client docker-client-latest \
                   docker-common docker-latest docker-latest-logrotate \
-                  docker-logrotate docker-engine    
+                  docker-logrotate docker-engine \
+                  docker-ce docker-ce-cli containerd.io -y
+
+rm -rf /var/lib/docker
 
 # Install using the repository
 # Install required packages. 
@@ -31,7 +34,11 @@ sudo yum install docker-ce docker-ce-cli containerd.io -y
 # Start Docker.
 sudo systemctl start docker
 
-sudo docker run hello-world
+echo "install docker lastest success"
+
+echo "you could docker run hello-world to test"
+
+# sudo docker run hello-world
 
 # adding your user to the “docker” group with something like:
 # sudo usermod -aG docker your-user
