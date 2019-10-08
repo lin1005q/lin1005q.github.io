@@ -1,7 +1,7 @@
 ---
-date: 2019-10-07 19:41:00
+date: 2019-10-08 18:00:00
 key: 可能是史上最全的MySQL和PGSQL的对比材料
-tags: [转载]
+tags: [转载,sql]
 ---
 
 >[可能是史上最全的MySQL和PGSQL的对比材料](https://www.cnblogs.com/lyhabc/p/11628042.html)
