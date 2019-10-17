@@ -4,6 +4,8 @@ key: Jenkinsfile代码质量检测范例
 tags: [java高级]
 ---
 
+## git
+
 ```groovy
 pipeline{
     agent any
@@ -36,6 +38,46 @@ pipeline{
                 script{
                     def scannerHome = tool 'sonarqube';
                     withSonarQubeEnv('sonarqube') { // If you have configured more than one global server connection, you can specify its name
+                      sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.6.0.1398:sonar'
+                    }
+                }
+            }
+        }
+    }
+}
+```
+
+## svn
+
+**注意: 需要将sonarqube server 中的 Disable the SCM Sensor 设置为true  路径:配置->配置->SCM->Disable the SCM Sensor **
+
+```groovy
+pipeline{
+    agent any
+
+    triggers {
+        // 每分钟判断一次代码是否有变化
+        pollSCM('H/5 * * * *')
+    }
+
+    tools {
+        maven 'maven'
+    }
+
+    stages {
+        stage('Build'){
+            steps{
+                sh 'mvn clean package'
+                // sh 'printenv'
+                echo 'build success'
+            }
+        }
+
+        stage('SonarQube analysis') {
+            steps{
+                script{
+                    def scannerHome = tool 'sonarqube';
+                    withSonarQubeEnv('sonarqube') {
                       sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.6.0.1398:sonar'
                     }
                 }
