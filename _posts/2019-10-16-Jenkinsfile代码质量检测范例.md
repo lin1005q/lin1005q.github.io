@@ -49,7 +49,7 @@ pipeline{
 
 ## svn
 
-**注意: 需要将sonarqube server 中的 Disable the SCM Sensor 设置为true  路径:配置->配置->SCM->Disable the SCM Sensor **
+**注意: 需要将sonarqube server 中的 Disable the SCM Sensor 设置为true  路径:配置->配置->SCM->Disable the SCM Sensor**
 
 ```groovy
 pipeline{
