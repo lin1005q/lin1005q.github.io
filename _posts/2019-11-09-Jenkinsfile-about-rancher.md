@@ -6,6 +6,7 @@ tags: [linux]
 
 jenkins对接rancher进行持续部署
 
+## 重点说明
 1. Jenkinsfile的方式是以后的主流
 2. jenkins plugins 中心的rancher plugin 是对应rancher 1.x版本，而现在一般都安装2.x，所以直接使用plugin无效。
 3. 还有一种方式是使用rancher-cli，就是在jenkins宿主机安装jenkins脚本工具，进行认证后，在jenkinsfile中通过sh的方式直接调用。
@@ -15,7 +16,9 @@ jenkins对接rancher进行持续部署
 7. Jenkinsfile中发送http请求需要安装`http request plugin`，使用的是groovy语言。这个插件提供了`ignoreSslErrors`设置项。
 8. 配置Jenkinsfile时不可以勾选`Use Groovy Sandbox`。有一个api不在snadbox的允许范围中。
 9. api协议需要自己去找，没有详细的接口文档。rancher会在api响应中将可以进行的操作的url显示出来。
+10. http认证使用Basic Auth。
 
+## Jenkinsfile
 ```conf
 pipeline{
     agent any
@@ -53,3 +56,9 @@ pipeline{
 }
 
 ```
+
+## 参考
+
+1. [Docker+Jenkins+Pipeline实现持续集成（二）java项目构建](https://www.jianshu.com/p/56c90b03c481)
+2. [使用Jenkins更新Rancher服务](https://www.jianshu.com/p/c4b95c056679)
+3. [RANCHER API(官方)](https://rancher.com/docs/rancher/v2.x/en/api/)
