@@ -62,3 +62,4 @@ pipeline{
 1. [Docker+Jenkins+Pipeline实现持续集成（二）java项目构建](https://www.jianshu.com/p/56c90b03c481)
 2. [使用Jenkins更新Rancher服务](https://www.jianshu.com/p/c4b95c056679)
 3. [RANCHER API(官方)](https://rancher.com/docs/rancher/v2.x/en/api/)
+4. [HTTP Request Plugin](https://jenkins.io/doc/pipeline/steps/http_request/)
