@@ -32,3 +32,6 @@ print("hello world");
 ```bash
 ngx.say('hello world');
 ```
+```c
+printf('hello world');
+```
