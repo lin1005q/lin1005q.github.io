@@ -22,16 +22,17 @@ ln -s full-path-to-mysql-VERSION-OS mysql
 cd mysql
 
 # 添加到环境变量，便于后续操作
-echo "export PATH=/usr/local/mysql/bin:$PATH" >> /etc/profile
+echo "export PATH=/usr/local/mysql/bin:\$PATH" >> /etc/profile
 source /etc/profile
 
 ```
 
 ## 添加配置文件
 
-新增文件`/etc/my.cnf`,内容如下:
+自定义修改datadir、socket、port、log等的配置 将其修改为mysql用户有权限的目录，这里直接设置为mysql用户的home目录下。
 
-```conf
+```bash
+cat /etc/my.cnf <<EOF 
 [mysqld]
 datadir=/home/mysql/mysqldata
 socket=/home/mysql/mysqldata/mysql.sock
@@ -53,16 +54,13 @@ pid-file=/home/mysql/mysqldata/mariadb.pid
 # include all files from the config directory
 #
 !includedir /etc/my.cnf.d
-```
+EOF
 
-自定义修改datadir、socket、port、log等的配置 将其修改为mysql用户有权限的目录，这里直接设置为mysql用户的home目录下。
-
-```bash
-vi /etc/my.cnf
 mkdir /etc/my.cnf.d
 mkdir /home/mysql
 mkdir /home/mysql/mysqldata
 mkdir /home/mysql/mysqllog
+
 echo "" > /home/mysql/mysqllog/mariadb.log
 
 chown -R mysql:mysql /home/mysql
