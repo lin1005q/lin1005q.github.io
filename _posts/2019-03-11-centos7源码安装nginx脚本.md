@@ -16,11 +16,11 @@ mkdir /root/soft && cd /root/soft
 
 yum install -y wget nc curl telnet
 
-wget http://nginx.org/download/nginx-1.17.2.tar.gz
+wget http://nginx.org/download/nginx-1.17.7.tar.gz
 
-tar -zxvf nginx-1.17.2.tar.gz
+tar -zxvf nginx-1.17.7.tar.gz
 
-cd nginx-1.17.2
+cd nginx-1.17.7
 
 yum install -y gcc gcc-c++ automake pcre pcre-devel zlip zlib-devel openssl openssl-devel
 
