@@ -7,6 +7,22 @@ header:
       zh-SG   : *ZH_HANS
     url: /
   - titles:
+      en      : &EN       k8s
+      en-GB   : *EN
+      en-US   : *EN
+      en-CA   : *EN
+      en-AU   : *EN
+      zh-Hans : &ZH_HANS  k8s
+      zh      : *ZH_HANS
+      zh-CN   : *ZH_HANS
+      zh-SG   : *ZH_HANS
+      zh-Hant : &ZH_HANT  k8s
+      zh-TW   : *ZH_HANT
+      zh-HK   : *ZH_HANT
+      ko      : &KO       k8s
+      ko-KR   : *KO
+    url: /2020/01/29/转-第1章-第一堂云原生课
+  - titles:
       en      : &EN       EAP
       en-GB   : *EN
       en-US   : *EN
@@ -38,7 +54,6 @@ header:
       ko      : &KO       아카이브
       ko-KR   : *KO
     url: /archive.html
-
   - titles:
       en      : &EN       About
       en-GB   : *EN
@@ -71,6 +86,14 @@ header:
       ko      : &KO       GitHub
       ko-KR   : *KO
     url: https://github.com/weihai4099/weihai4099.github.io
+
+k8s-zh:
+  - title:      CNCFxAlibaba云原生技术公开课
+    children:
+      - title:  第1章-第一堂云原生课
+        url:    /2020/01/29/转-第1章-第一堂云原生课
+      - title:  第2章-容器基本概念
+        url:    /2020/01/29/转-第2章-容器基本概念
 
 
 eap-zh:
