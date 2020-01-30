@@ -21,7 +21,7 @@ header:
       zh-HK   : *ZH_HANT
       ko      : &KO       k8s
       ko-KR   : *KO
-    url: /2020/01/29/转-第1章-第一堂云原生课
+    url: /2020/01/29/转-第1章-第一堂云原生课.html
   - titles:
       en      : &EN       EAP
       en-GB   : *EN
@@ -37,7 +37,7 @@ header:
       zh-HK   : *ZH_HANT
       ko      : &KO       EAP
       ko-KR   : *KO
-    url: /2018/01/24/eap使用(1)-工具列表
+    url: /2018/01/24/eap使用(1)-工具列表.html
   - titles:
       en      : &EN       Archive
       en-GB   : *EN
@@ -91,53 +91,53 @@ k8s-zh:
   - title:      CNCFxAlibaba云原生技术公开课
     children:
       - title:  第1章-第一堂云原生课
-        url:    /2020/01/29/转-第1章-第一堂云原生课
+        url:    /2020/01/29/转-第1章-第一堂云原生课.html
       - title:  第2章-容器基本概念
-        url:    /2020/01/29/转-第2章-容器基本概念
+        url:    /2020/01/29/转-第2章-容器基本概念.html
 
 
 eap-zh:
   - title:      基本说明
     children:
       - title:  工具列表
-        url:    /2018/01/24/eap使用(1)-工具列表
+        url:    /2018/01/24/eap使用(1)-工具列表.html
       - title:  工具安装
-        url:    /2018/01/24/eap使用(2)-工具安装
+        url:    /2018/01/24/eap使用(2)-工具安装.html
       - title:  架构设计
-        url:    /2018/01/24/eap使用(4)-架构设计
+        url:    /2018/01/24/eap使用(4)-架构设计.html
       - title:  数据库设计
-        url:    /2018/01/24/eap使用(5)-数据库设计
+        url:    /2018/01/24/eap使用(5)-数据库设计.html
       - title:  代码规范
-        url:    /2018/01/25/eap使用(6)-代码规范
+        url:    /2018/01/25/eap使用(6)-代码规范.html
       - title:  dao层封装简单介绍
-        url:    /2017/08/18/EAPdao层封装简单介绍
+        url:    /2017/08/18/EAPdao层封装简单介绍.html
       - title:  新版EAP使用必备 
-        url:    /2018/01/13/新版EAP使用必备
+        url:    /2018/01/13/新版EAP使用必备.html
   - title:      功能使用
     children:
       - title:  cas认证时序图
-        url:    /2018/01/13/cas-认证时序图
+        url:    /2018/01/13/cas-认证时序图.html
       - title:  cas配置
-        url:    /2017/05/11/cas配置
+        url:    /2017/05/11/cas配置.html
       - title:  普通导出
-        url:    /2018/02/05/eap功能介绍-导出
+        url:    /2018/02/05/eap功能介绍-导出.html
       - title:  Jxls导出
-        url:    /2018/03/02/eap功能介绍-jxls导出
+        url:    /2018/03/02/eap功能介绍-jxls导出.html
       - title:  事务  
-        url:    /2018/06/30/eap使用(7)-事务
+        url:    /2018/06/30/eap使用(7)-事务.html
       - title:  文件上传
-        url:    /2018/06/30/eap使用(8)-文件上传
+        url:    /2018/06/30/eap使用(8)-文件上传.html
       - title:  数据权限
-        url:    /2018/06/30/eap使用(9)-permission数据权限模块使用
+        url:    /2018/06/30/eap使用(9)-permission数据权限模块使用.html
       - title:  功能权限
-        url:    /2018/07/11/eap使用(10)权限说明
+        url:    /2018/07/11/eap使用(10)权限说明.html
   - title:      其他
     children:
       - title:  session共享
-        url:    /2018/03/04/session共享
+        url:    /2018/03/04/session共享.html
       - title:  向maven私库nexus上传包
-        url:    /2018/05/13/向maven私库nexus上传包
+        url:    /2018/05/13/向maven私库nexus上传包.html
       - title:  only_full_group_by
-        url:    /2018/05/24/mysql5.7only_full_group_by问题修复
+        url:    /2018/05/24/mysql5.7only_full_group_by问题修复.html
       - title:  jdk install
-        url:    /2018/01/13/jdk-install
+        url:    /2018/01/13/jdk-install.html
