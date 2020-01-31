@@ -46,6 +46,8 @@ Job
 这里面的内容都是一样的，唯一多了两个点：
 
 *   第一个是 restartPolicy，在 Job 里面我们可以设置 Never、OnFailure、Always 这三种重试策略。在希望 Job 需要重新运行的时候，我们可以用 Never；希望在失败的时候再运行，再重试可以用 OnFailure；或者不论什么情况下都重新运行时 Alway；
+    * 如果RestartPolicy指定Never，则job会在pod出现故障时创建新的pod，且故障pod不会消失。.status.failed加1。
+    * 如果RestartPolicy指定OnFailure，则job会在pod出现故障时其内部重启容器，而不是创建pod。.status.failed不变
 *   另外，Job 在运行的时候不可能去无限的重试，所以我们需要一个参数来控制重试的次数。这个 backoffLimit 就是来保证一个 Job 到底能重试多少次。
 
 所以在 Job 里面，我们主要重点关注的一个是 **restartPolicy 重启策略**和 **backoffLimit 重试次数限制**。
@@ -56,13 +58,15 @@ Job
 
 Job 创建完成之后，我们就可以通过 kubectl get jobs 这个命令，来查看当前 job 的运行状态。得到的值里面，基本就有 Job 的名称、当前完成了多少个 Pod，进行多长时间。
 
-**AGE**的含义是指这个 Pod 从当前时间算起，减去它当时创建的时间。这个时长主要用来告诉你 Pod 的历史、Pod 距今创建了多长时间。
+  * **AGE**的含义是指这个 Pod 从当前时间算起，减去它当时创建的时间。这个时长主要用来告诉你 Pod 的历史、Pod 距今创建了多长时间。
 
-**DURATION**主要来看我们 Job 里面的实际业务到底运行了多长时间，当我们的性能调优的时候，这个参数会非常的有用。**COMPLETIONS**主要来看我们任务里面这个 Pod 一共有几个，然后它其中完成了多少个状态，会在这个字段里面做显示。
+  * **DURATION**主要来看我们 Job 里面的实际业务到底运行了多长时间，当我们的性能调优的时候，这个参数会非常的有用。
+
+  * **COMPLETIONS**主要来看我们任务里面这个 Pod 一共有几个，然后它其中完成了多少个状态，会在这个字段里面做显示。
 
 #### 查看 Pod
 
-下面我们来看一下 Pod，其实 Job 最后的执行单元还是 Pod。我们刚才创建的 Job 会创建出来一个叫“pi”的一个 Pod，这个任务就是来计算这个圆周率，Pod 的名称会以“job−name−job−name−{job-name}-{random-suffix}”，我们可以看一下下面 Pod 的 yaml 格式。
+下面我们来看一下 Pod，其实 Job 最后的执行单元还是 Pod。我们刚才创建的 Job 会创建出来一个叫“pi”的一个 Pod，这个任务就是来计算这个圆周率，Pod 的名称会以“{job-name}-{random-suffix}”，我们可以看一下下面 Pod 的 yaml 格式。
 
 ![avatar](https://images.gitbook.cn/FhXtzQPMBAE-mI_CZZ1pNtldCOHY)
 

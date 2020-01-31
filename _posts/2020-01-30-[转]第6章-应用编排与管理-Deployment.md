@@ -31,7 +31,7 @@ sidebar:
 
 这里就引入了我们今天课程的主题：Deployment 管理部署发布的控制器。
 
-![avatar](https://images.gitbook.cn/FqRZXqnvbkypbT-ARZ9EuciekCqD)
+![avatar](https://yqfile.alicdn.com/eda2bd4b1368b53356b0c1bb67eeb6958b685d6d.png)
 
 可以看到我们通过 Deployment 将应用 A、B、C 分别规划到不同的 Deployment 中，每个 Deployment 其实是管理的一组相同的应用 Pod，这组 Pod 我们认为它是相同的一个副本，那么 Deployment 能帮我们做什么事情呢？
 
@@ -48,19 +48,19 @@ sidebar:
 
 下面我们用一个简单的用例来解读一下如何操作 Deployment。
 
-![avatar](https://images.gitbook.cn/Fu2ivUsTaLUzVrDBu2futpWLaF1t)
+![avatar](https://images.gitbook.cn/Fs4OqN5_81-gMNZc4uNCtlVfAvbI)
 
 上图可以看到一个最简单的 Deployment 的 yaml 文件。
 
 “apiVersion：apps/v1”，也就是说 Deployment 当前所属的组是 apps，版本是 v1。“metadata”是我们看到的 Deployment 元信息，也就是往期回顾中的 Labels、Selector、Pod.image，这些都是在往期中提到的知识点。
 
-Deployment 作为一个 K8s 资源，它有自己的 metadata 元信息，这里我们定义的 Deployment.name 是 nginx.Deployment。Deployment.spec 中首先要有一个核心的字段，即 replicas，这里定义期望的 Pod 数量为三个；selector 其实是 Pod 选择器，那么所有扩容出来的 Pod，它的 Labels 必须匹配 selector 层上的 image.labels，也就是 app.nginx。
+Deployment 作为一个 K8s 资源，它有自己的 metadata 元信息，这里我们定义的 Deployment.name 是 nginx-deployment。Deployment.spec 中首先要有一个核心的字段，即 replicas，这里定义期望的 Pod 数量为三个；selector 其实是 Pod 选择器，那么所有扩容出来的 Pod，它的 Labels 必须匹配 selector 层上的 image.labels，也就是 app.nginx。
 
 就如上面的 Pod 模板 template 中所述，这个 template 它其实包含了两部分内容：
 
 *   一部分是我们期望 Pod 的 metadata，其中包含了 labels，即跟 selector.matchLabels 相匹配的一个 Labels；
     
-*   第二部分是 template 包含的一个 Pod.spec。这里 Pod.spec 其实是 Deployment 最终创建出来 Pod 的时候，它所用的 Pod.spec，这里定义了一个 container.nginx，它的镜像版本是 nginx:1.7.9。
+*   第二部分是 template 包含的一个 Pod.spec。这里 Pod.spec 其实是 Deployment 最终创建出来 Pod 的时候，它所用的 Pod.spec，这里定义了一个 container 名称为 nginx，它的镜像版本是 nginx:1.7.9。
     
 
 下面是遇到的新知识点：
@@ -72,7 +72,7 @@ Deployment 作为一个 K8s 资源，它有自己的 metadata 元信息，这里
 
 当我们创建出一个 Deployment 的时候，可以通过 kubectl get deployment，看到 Deployment 总体的一个状态。如下图所示：
 
-![avatar](https://images.gitbook.cn/Fs4OqN5_81-gMNZc4uNCtlVfAvbI)
+![avatar](https://images.gitbook.cn/FqPlCtPscJEM23b_Q-AjWN9FtiPT)
 
 上图中可以看到：
 
@@ -86,7 +86,7 @@ Deployment 作为一个 K8s 资源，它有自己的 metadata 元信息，这里
 
 最后我们可以查看一下 Pod。如下图所示：
 
-![avatar](https://images.gitbook.cn/FqPlCtPscJEM23b_Q-AjWN9FtiPT)
+![avatar](https://yqfile.alicdn.com/1b5daa0b639f334e7ac424a0fbaa6b16918b0035.png)
 
 上图中有三个 Pod，Pod 名字格式我们不难看到。
 
@@ -100,13 +100,15 @@ Deployment 作为一个 K8s 资源，它有自己的 metadata 元信息，这里
 
 **kubectl set image deployment.v1.apps/nginx-deployment nginx=nginx:1.9.1**
 
-首先 kubectl 后面有一个 set image 固定写法，这里指的是设定镜像；其次是一个 deployment.v1.apps，这里也是一个固定写法，写的是我们要操作的资源类型，deployment 是资源名、v1 是资源版本、apps 是资源组，这里也可以简写为 deployment 或者 deployment.apps，比如说写为 deployment 的时候，默认将使用 apps 组 v1 版本。
+* 首先 kubectl 后面有一个 set image 固定写法，这里指的是设定镜像；
 
-第三部分是要更新的 deployment 的 name，也就是我们的 nginx-deployment；再往后的 nginx 其实指的是 template，也就是 Pod 中的 container.name；这里我们可以注意到：一个 Pod 中，其实可能存在多个 container，而我们指定想要更新的镜像的 container.name，就是 nginx。
+* 其次是一个 deployment.v1.apps，这里也是一个固定写法，写的是我们要操作的资源类型，deployment 是资源名、v1 是资源版本、apps 是资源组，这里也可以简写为 deployment 或者 deployment.apps，比如说写为 deployment 的时候，默认将使用 apps 组 v1 版本。
 
-最后，指定我们这个容器期望更新的镜像版本，这里指的是 nginx: 1.9.1。如下图所示：当执行完这条命令之后，可以看到 deployment 中的 template.spec 已经更新为 nginx: 1.9.1。
+* 第三部分是要更新的 deployment 的 name，也就是我们的 nginx-deployment；再往后的 nginx 其实指的是 template，也就是 Pod 中的 container.name；这里我们可以注意到：一个 Pod 中，其实可能存在多个 container，而我们指定想要更新的镜像的 container.name，就是 nginx。
 
-![avatar](https://images.gitbook.cn/FkERYt8vsgt2u6-pHkJ9mnCHR6MM)
+* 最后，指定我们这个容器期望更新的镜像版本，这里指的是 nginx: 1.9.1。如下图所示：当执行完这条命令之后，可以看到 deployment 中的 template.spec 已经更新为 nginx: 1.9.1。
+
+![avatar](https://images.gitbook.cn/FkERYt8vsgt2u6-pHkJ9mnCHR6MM)
 
 ### 快速回滚
 
@@ -175,19 +177,19 @@ Deployment 作为一个 K8s 资源，它有自己的 metadata 元信息，这里
 
 可以看到：旧版本 replicaset 的 spec 数量以及 pod 数量是都是 0，新版本的 pod 数量是 3 个。
 
-* * *
-
 假设又做了一次更新，这个时候 get.pod 其实可以看到：当前的 pod 其实是有两个旧版本的处于 running，另一个旧版本是在删除中；而两个新版本的 pod，一个已经进入 running，一个还在 creating 中。
 
 这时我们可用的 pod 数量即非删除状态的 pod 数量，其实是 4 个，已经超过了 replica 原先在 deployment 设置的数量 3 个。这个原因是我们在 deployment 中有 maxavailable 和 maxsugar 两个操作，这两个配置可以限制我们在发布过程中的一些策略。在后面架构设计中会讲到这个问题。
 
-![avatar](https://images.gitbook.cn/FpiPmioOOxkeXk7Ve-7ro7RmkFGS)\*\* \*\*
+![avatar](https://images.gitbook.cn/FpiPmioOOxkeXk7Ve-7ro7RmkFGS)
 
 ### 历史版本保留 revisionHistoryLimit
 
 上图看到，我们当前最新版本的 replicaset 是 3 个 pod，另外还有两个历史版本的 replicaset，那么会不会存在一种情况：就是随着 deployment 持续的更新，这个旧版本的 replicaset 会越积越多呢？其实 deployment 提供了一个机制来避免这个问题：在 deployment spec 中，有一个 revisionHistoryLimit，它的默认值为 10，它其实保证了保留历史版本的 replicaset 的数量，我们尝试把它改为 1。
 
-![avatar](https://images.gitbook.cn/Fn-kTF85gQEi2Vkk8Jvqhyz2PgdI) ![avatar](https://images.gitbook.cn/FtV6gw2MsQflGn8jprEnRwn8cTmg)
+![avatar](https://images.gitbook.cn/Fn-kTF85gQEi2Vkk8Jvqhyz2PgdI) 
+
+![avatar](https://images.gitbook.cn/FtV6gw2MsQflGn8jprEnRwn8cTmg)
 
 由上面第二张图，可以看到两个 replicaset，也就是说，除了当前版本的 replicaset 之外，旧版本的 replicaset 其实只保留了一个。
 
@@ -244,7 +246,7 @@ Deployment 作为一个 K8s 资源，它有自己的 metadata 元信息，这里
 
 我们再模拟一下发布，发布的情况会稍微复杂一点。这里可以看到 Deployment 当前初始的 template，比如说 template1 这个版本。template1 这个 ReplicaSet 对应的版本下有三个 Pod：Pod1，Pod2，Pod3。
 
-这时修改 template 中一个容器的 image， Deployment controller 就会新建一个对应 template2 的 ReplicaSet。创建出来之后 ReplicaSet 会逐渐修改两个 ReplicaSet 的数量，比如它会逐渐增加 ReplicaSet2 中 replicas 的期望数量，而逐渐减少 ReplicaSet1 中的 Pod 数量。
+这时修改 template 中一个容器的 image， Deployment controller 就会新建一个对应 template2 的 ReplicaSet。创建出来之后 Deployment controller 会逐渐修改两个 ReplicaSet 的数量，比如它会逐渐增加 ReplicaSet2 中 replicas 的期望数量，而逐渐减少 ReplicaSet1 中的 Pod 数量。
 
 那么最终达到的效果是：新版本的 Pod 为 Pod4、Pod5和Pod6，旧版本的 Pod 已经被删除了，这里就完成了一次发布。
 
