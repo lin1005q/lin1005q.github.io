@@ -24,7 +24,7 @@ cd nginx-1.17.7
 
 yum install -y gcc gcc-c++ automake pcre pcre-devel zlip zlib-devel openssl openssl-devel
 
-./configure --with-threads --with-file-aio --with-http_ssl_module --with-http_v2_module --with-stream
+./configure --with-threads --with-file-aio --with-http_ssl_module --with-http_v2_module --with-stream --with-http_sub_module
 
 make 
 
