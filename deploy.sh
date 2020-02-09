@@ -1,3 +1,3 @@
 rm -rf _site
-jekyll build
+npm run build
 upx sync --delete _site /
