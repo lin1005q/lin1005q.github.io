@@ -1,6 +1,6 @@
 ---
 date: 2020-02-06 23:04:00 +0800
-key: 使用jenkins完成自动化部署
+key: 使用jenkins完成node项目自动化部署
 tags: [linux]
 ---
 
