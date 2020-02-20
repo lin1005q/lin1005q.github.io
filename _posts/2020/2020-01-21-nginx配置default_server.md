@@ -1,7 +1,7 @@
 ---
 date: 2020-01-21 23:11:00 +0800
 key: nginx配置default_server
-tags: [web服务器]
+tags: [web服务器,nginx]
 ---
 
 

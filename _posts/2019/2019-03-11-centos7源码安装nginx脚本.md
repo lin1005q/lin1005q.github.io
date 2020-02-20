@@ -1,7 +1,7 @@
 ---
 title: centos7源码安装nginx脚本
 key: nginx
-tags: [web服务器,shell]
+tags: [web服务器,shell,nginx]
 ---
 
 
