@@ -66,14 +66,14 @@ hostPort
 apiVersion: v1
 kind: Pod
 metadata:
-    name: influxdb
+  name: influxdb
 spec:
-    containers:
+  containers:
     - name: influxdb
-        image: influxdb
-        ports:
+      image: influxdb
+      ports:
         - containerPort: 8086
-            hostPort: 8086
+          hostPort: 8086
 ```
 
 这样做有个缺点，因为Pod重新调度的时候该Pod被调度到的宿主机可能会变动，这样就变化了，用户必须自己维护一个Pod与所在宿主机的对应关系。
