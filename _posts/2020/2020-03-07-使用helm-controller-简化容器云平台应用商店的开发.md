@@ -178,25 +178,25 @@ customObjectsApi.deleteNamespacedCustomObject("app.alauda.io", "v1alpha1", "defa
 
 captain并没有像deployment原生的提供了对回滚的支持，需要自己将每次安装或者升级的参数进行外部保存，再重新replace指定版本的参数，进行模拟回滚。
 
-### 其他说明
+## 其他说明
 * 整体上，我们使用了三周的时间完成了应用商店第一版的开发，以及页面接口联调。这比使用cli方式的预期快了很多，而且我们的ansbile部署脚本上只需要再额外添加两行安装captain的脚本。
 * 使用私有helm repo，默认情况下，集群内的coredns将非集群内的地址转发到本机的`/etc/resolv.conf`,这个时候一定要确保k8s宿主机的`/etc/resolv.conf`dns地址修改为内网的dns server地址。否则captain controller找不到私有的helm repo，错误是 timeout。
 * 在开发过程中，如果遇到问题无法定位，可以直接查看captain-controller的log，来进行处理。
 * 网络问题最好部署一个busybox，内置了nslookup，wget等工具。方便网络检测。
   ```yaml
-  apiVersion: v1
-  kind: Pod
-  metadata:
-    name: busybox
-    namespace: default
-  spec:
-    containers:
-    - name: busybox
-      image: busybox:1.28.4
-      command:
-      - sleep
-      - "3600"
-      imagePullPolicy: IfNotPresent
-      restartPolicy: Always
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      name: busybox
+      namespace: default
+    spec:
+      containers:
+      - name: busybox
+        image: busybox:1.28.4
+        command:
+        - sleep
+        - "3600"
+        imagePullPolicy: IfNotPresent
+        restartPolicy: Always
   ```
   使用`kubectl create -f busybox.yaml`完成busybox部署，使用`kubectl exec -it busybox sh`进入容器内部，使用`nslookup`，`wget`等进行网络检测。
