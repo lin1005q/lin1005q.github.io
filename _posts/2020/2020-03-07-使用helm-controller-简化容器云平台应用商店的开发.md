@@ -4,8 +4,6 @@ key: 使用helm-controller-简化容器云平台应用商店的开发开发手�
 tags: [云原生]
 ---
 
-# 使用helm controller 简化容器云平台应用商店的开发
-
 熟练的阅读并且进行相应的开发，大概需要对以下知识的了解：
 
 * k8s rest api 模型需要了解。
