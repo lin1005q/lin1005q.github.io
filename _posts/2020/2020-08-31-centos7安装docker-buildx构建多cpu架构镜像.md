@@ -66,6 +66,15 @@ docker buildx inspect --bootstrap
 docker buildx ls
 ```
 
+## 添加私有仓库的ssl证书到buildx容器内
+
+```bash
+BUILDER=$(docker ps | grep buildkitd | cut -f1 -d' ')
+docker cp /etc/docker/certs.d/harbor.offline/harbor.offline.crt $BUILDER:/usr/local/share/ca-certificates/
+docker exec $BUILDER cat /usr/local/share/ca-certificates/harbor.offline.crt >> /etc/ssl/certs/ca-certificates.crt
+docker restart $BUILDER
+```
+
 ## 构建镜像
 
 ```bash
