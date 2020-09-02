@@ -60,7 +60,7 @@ systemctl restart docker
 docker version | grep Experimental
 
 docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
-docker buildx create --use --name=mybuildr
+docker buildx create --use --name=mybuilder
 docker buildx inspect --bootstrap
 # 查询 builder list
 docker buildx ls
@@ -71,7 +71,7 @@ docker buildx ls
 ```bash
 BUILDER=$(docker ps | grep buildkitd | cut -f1 -d' ')
 docker cp /etc/docker/certs.d/harbor.offline/harbor.offline.crt $BUILDER:/usr/local/share/ca-certificates/
-docker exec $BUILDER cat /usr/local/share/ca-certificates/harbor.offline.crt >> /etc/ssl/certs/ca-certificates.crt
+docker exec $BUILDER sh -c "cat /usr/local/share/ca-certificates/harbor.offline.crt >> /etc/ssl/certs/ca-certificates.crt"
 docker restart $BUILDER
 ```
 
