@@ -22,6 +22,25 @@ reboot
 uname -a
 ```
 
+## 卸载旧内核
+
+```bash
+[root@localhost ~]# rpm -qa | grep kernel
+kernel-3.10.0-327.22.2.el7.x86_64
+kernel-devel-3.10.0-327.22.2.el7.x86_64
+kernel-tools-libs-3.10.0-327.28.2.el7.x86_64
+kernel-headers-3.10.0-327.28.2.el7.x86_64
+kernel-3.10.0-327.28.2.el7.x86_64
+kernel-devel-3.10.0-327.13.1.el7.x86_64
+php-symfony-http-kernel-2.8.7-1.el7.noarch
+kernel-tools-3.10.0-327.28.2.el7.x86_64
+kernel-devel-3.10.0-327.28.2.el7.x86_64
+kernel-devel-3.10.0-327.18.2.el7.x86_64
+
+[root@localhost ~]# yum remove kernel-3.10.0*
+[root@localhost ~]# reboot
+```
+
 ## 安装qemu
 
 ```bash
