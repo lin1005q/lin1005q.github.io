@@ -63,12 +63,16 @@ nginx -s stop
 ## 添加自启脚本
 
 ```bash
+# User和Group必须指定  否则开机自启后，root用户可以启停，而普通用户无权限启停
+
 cat <<EOF > /usr/lib/systemd/system/nginx.service
 [Unit]
 Description=nginx
 After=network.target
 
 [Service]
+User=test
+Group=test
 Type=forking
 ExecStart=/home/test/nginx_home/sbin/nginx
 ExecReload=/home/test/nginx_home/sbin/nginx -s reload
