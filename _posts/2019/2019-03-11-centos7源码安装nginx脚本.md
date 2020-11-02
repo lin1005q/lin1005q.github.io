@@ -39,9 +39,8 @@ make install
 ## 添加nginx环境变量方便操作
 
 ```bash
-# 追加环境变量配置  export PATH=$PATH:/home/test/nginx_home/sbin
-vim ~/.bashrc
-
+# 追加环境变量配置  
+echo 'export PATH=$PATH:/home/test/nginx_home/sbin' >> ~/.bashrc
 source ~/.bashrc
 ```
 
@@ -87,7 +86,7 @@ systemctl status nginx.service
 
 ## 允许test用户监听1024以下端口
 
-```bath
+```bash
 setcap cap_net_bind_service=+eip /home/test/nginx_home/sbin/nginx
 ```
 
