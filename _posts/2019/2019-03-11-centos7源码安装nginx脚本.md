@@ -96,14 +96,18 @@ setcap cap_net_bind_service=+eip /home/test/nginx_home/sbin/nginx
 
 ## 添加健康检查模块
 
+*nginx开源版本并不支持健康检查并移除不健康的节点，这里通过开源的patch来处理*
+
 ```bash
 
 # user root
 yum install patch -y
 # user test
 su - test
-
+# 同时支持 stream 和 http 的upstream健康检查
 git clone https://github.com/zhouchangxun/ngx_healthcheck_module.git
+# 仅支持http的健康检查
+git clone https://github.com/yaoweibin/nginx_upstream_check_module.git
 
 cd nginx-1.19.4
 
@@ -153,3 +157,7 @@ ln -s /usr/local/nginx/sbin/nginx /usr/bin/nginx
 > [https://github.com/yaoweibin/nginx_upstream_check_module](https://github.com/yaoweibin/nginx_upstream_check_module)
 
 > [https://github.com/zhouchangxun/ngx_healthcheck_module](https://github.com/zhouchangxun/ngx_healthcheck_module)
+
+> [Linux上搭建nginx+nginx_upstream_check_module模块实现后端节点健康检查](https://blog.csdn.net/Tam_KIng/article/details/106002173)
+
+> [Nginx+upstream针对后端服务器容错的配置说明](https://www.cnblogs.com/kevingrace/p/8185218.html)
