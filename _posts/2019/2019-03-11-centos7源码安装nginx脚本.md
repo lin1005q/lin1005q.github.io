@@ -22,13 +22,13 @@ useradd test
 
 su - test
 
-wget http://nginx.org/download/nginx-1.19.4.tar.gz
+wget http://nginx.org/download/nginx-1.19.6.tar.gz
 
-tar -zxvf nginx-1.19.4.tar.gz
+tar -zxvf nginx-1.19.6.tar.gz
 
 mkdir nginx_home
 
-cd nginx-1.19.4
+cd nginx-1.19.6
 
 ./configure --with-http_dav_module --with-threads --with-file-aio --with-http_ssl_module --with-http_v2_module --with-stream --with-http_sub_module --with-http_auth_request_module --with-http_stub_status_module --with-http_realip_module --prefix=/home/test/nginx_home
 
@@ -109,7 +109,7 @@ git clone https://github.com/zhouchangxun/ngx_healthcheck_module.git
 # 仅支持http的健康检查
 git clone https://github.com/yaoweibin/nginx_upstream_check_module.git
 
-cd nginx-1.19.4
+cd nginx-1.19.6
 
 patch -p1 < /home/test/ngx_healthcheck_module/nginx_healthcheck_for_nginx_1.16+.patch
 
@@ -130,11 +130,11 @@ mkdir /root/soft && cd /root/soft
 
 yum install -y wget nc curl telnet
 
-wget http://nginx.org/download/nginx-1.19.4.tar.gz
+wget http://nginx.org/download/nginx-1.19.6.tar.gz
 
-tar -zxvf nginx-1.19.4.tar.gz
+tar -zxvf nginx-1.19.6.tar.gz
 
-cd nginx-1.19.4
+cd nginx-1.19.6
 
 yum install -y gcc gcc-c++ automake pcre pcre-devel zlip zlib-devel openssl openssl-devel
 
